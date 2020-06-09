@@ -1,38 +1,81 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
+
+/*  GENERAL RULES
+ */
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #343434;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.padding-vertical {
+  padding: 5rem 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.padding-horizontal {
+  padding: 0 5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.blue-bg {
+  background: #007bff;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.dark-bg {
+  background: #343434;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.no-padding {
+  padding: 0;
 }
+
+.center {
+  text-align: center;
+}
+
+/* TYPOGRAPHY
+ */
+
+h1, h3 {
+  font-weight: 600;
+}
+
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo {
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/*  HEADER & FOOTER
+ */
+
+header,
+footer {
+  padding: 2rem 0;
+}
+
+header h3 {
+  margin: 0;
+}
+
+footer {
+  text-align: center;
+  color: white;
+  font-size: 75%;
+}
+
+footer a {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
