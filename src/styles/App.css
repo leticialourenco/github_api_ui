@@ -203,17 +203,26 @@ thead th {
   border: 0;
 }
 
+.sort button,
+.dropdown-item {
+  font-size: 75%;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
 .sort button {
   float: right;
-  text-transform: uppercase;
   font-size: 80%;
-  font-weight: 600;
   letter-spacing: 1px;
 }
 
 .sort button:focus,
 .show>.btn-primary.dropdown-toggle:focus {
   box-shadow: 0 0 0;
+}
+
+.dropdown-item small {
+  font-weight: 600;
 }
 
 .dropdown-item.active,

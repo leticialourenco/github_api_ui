@@ -56,34 +56,34 @@ class Organizations extends Component {
                                     <Dropdown.Item
                                         onClick={ () => handleSortChange("forks_count", "asc") }
                                     >
-                                        Forks (asc)
+                                        <small>(asc)</small> Forks
                                     </Dropdown.Item>
                                     <Dropdown.Item
                                         onClick={ () => handleSortChange("forks_count", "desc") }
                                     >
-                                        Forks (desc)
+                                        <small>(des)</small> Forks
                                     </Dropdown.Item>
 
                                     <Dropdown.Item
                                         onClick={ () => handleSortChange("watchers_count", "asc") }
                                     >
-                                        Watchers (asc)
+                                        <small>(asc)</small> Watchers
                                     </Dropdown.Item>
                                     <Dropdown.Item
                                         onClick={ () => handleSortChange("watchers_count", "desc") }
                                     >
-                                        Watchers (desc)
+                                        <small>(des)</small> Watchers
                                     </Dropdown.Item>
 
                                     <Dropdown.Item
                                         onClick={ () => handleSortChange("stargazers_count", "asc") }
                                     >
-                                        Stars (asc)
+                                        <small>(asc)</small> Stars
                                     </Dropdown.Item>
                                     <Dropdown.Item
                                         onClick={ () => handleSortChange("stargazers_count", "desc") }
                                     >
-                                        Stars (desc)
+                                        <small>(des)</small> Stars
                                     </Dropdown.Item>
                                 </DropdownButton>
                             </Col>
