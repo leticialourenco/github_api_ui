@@ -38,9 +38,9 @@ class OrganizationCommits extends Component {
                         <Table className="table-details">
                             <thead>
                             <tr>
-                                <th>Commit</th>
+                                <th className="center">Commit</th>
                                 <th>Message</th>
-                                <th>Author</th>
+                                <th className="center">Author</th>
                                 <th className="center">Date</th>
                             </tr>
                             </thead>
@@ -48,25 +48,25 @@ class OrganizationCommits extends Component {
                             <tbody>
                             { commits.map(commit =>
                                 <tr key={ commit.sha }>
-                                    <td>
-                                        <a href={ commit.url ? commit.url : "#"}
+                                    <td className="commit-container">
+                                        <a href={ commit.html_url ? commit.html_url : "#"}
                                            target="_blank"
                                            rel="noopener noreferrer">
-                                            { commit.sha }
+                                            { (commit.sha).substring(0, 7) }
                                         </a>
                                     </td>
                                     <td>
                                         { commit.commit.message }
                                     </td>
-                                    <td>
-                                        <a href={ commit.author ? commit.author.url : "#"  }
+                                    <td className="center no-break">
+                                        <a href={ commit.author ? commit.author.html_url : "#"  }
                                            target="_blank"
                                            rel="noopener noreferrer">
                                             { commit.commit.author.name }
                                         </a>
                                     </td>
-                                    <td className="center">
-                                        { (commit.commit.author.date).substring(0, 10) }
+                                    <td className="center no-break">
+                                        { new Date(commit.commit.author.date).toString().substring(4, 15) }
                                     </td>
                                 </tr>
                             )}
