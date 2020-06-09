@@ -89,6 +89,11 @@ footer a {
   font-weight: 700;
 }
 
+footer .separator {
+  padding: 0 1rem;
+  opacity: .5;
+}
+
 /* ORGANIZATION LIST
  */
 

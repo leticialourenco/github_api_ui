@@ -25,9 +25,23 @@ class OrganizationCommits extends Component {
     render() {
         const { organization, repo, commits } = this.state;
 
-        if(!commits || !commits.map){
-            return (<div>No commits to display</div>)
-        }
+        if (!commits || !commits.map) {
+            return (
+                <Container className="padding-vertical organization-single">
+                    <h2 className="title">
+                        <Image src={ organization.avatar_url }/>
+                        <span>{ organization.login }</span>
+                        <span className="sub-title"><span className="light">repo:</span> { repo }</span>
+                    </h2>
+
+                    <div className="alert alert-secondary">
+                        <h3 className="list-label">Empty Repository</h3>
+                        <span>
+                            No commits to display
+                        </span>
+                    </div>
+                </Container>
+        )}
 
         return (
             <Container className="padding-vertical organization-single">

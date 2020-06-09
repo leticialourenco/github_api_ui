@@ -7,8 +7,12 @@ const Footer = () => {
             <Container>
                 <Row>
                     <Col>
+                        <a href="https://github-api-ui.now.sh/" target="_blank" rel="noopener noreferrer">
+                            Launch Live App
+                        </a>
+                        <span className="separator">|</span>
                         <a href="https://github.com/leticialourenco/github_api_ui" target="_blank" rel="noopener noreferrer">
-                            View Project on Github
+                            View on Github
                         </a>
                     </Col>
                 </Row>

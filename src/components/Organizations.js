@@ -108,7 +108,7 @@ class Organizations extends Component {
                                     GitHub API doesn't support partial search,
                                     search term has to match the full name of an organization.
                                     Example: "netflix", "github", "nasa"
-                                </span>
+                                    </span>
                                 </div>
                                 }
                             </div>
