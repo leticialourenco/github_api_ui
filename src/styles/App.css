@@ -202,3 +202,28 @@ thead th {
 .table-details thead th {
   border: 0;
 }
+
+.sort button {
+  float: right;
+  text-transform: uppercase;
+  font-size: 80%;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.sort button:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0;
+}
+
+.dropdown-item.active,
+.dropdown-item:active,
+.dropdown-item:focus,
+.dropdown-item:hover {
+  background: #007bff;
+  color: white;
+}
+
+.dropdown-toggle::after {
+  margin-left: .5rem;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col, Image, Table } from 'react-bootstrap';
+import { Container, Row, Col, Image, Table, Dropdown, DropdownButton  } from 'react-bootstrap';
 import fetchHelper from "../utils/fetchHelper";
 
 class Organizations extends Component {
@@ -23,17 +23,71 @@ class Organizations extends Component {
     }
 
     render() {
-        const { organization } = this.state
-        const { repos } = this.state
+        const { organization, repos } = this.state
+        let sorted_repos = repos
+
+        const handleSortChange = (value, order) => {
+            order === "asc" ?
+                sorted_repos = repos.sort((a, b) => a[value] > b[value] ? 1 : -1)
+                :
+                sorted_repos = repos.sort((a, b) => a[value] < b[value] ? 1 : -1)
+
+            this.setState({ sort: value })
+        }
 
         return (
             <Container className="padding-vertical organization-single">
                 <Row>
                     <Col>
-                        <h2 className="title">
-                            <Image src={ organization.avatar_url }/>
-                            <span>{ organization.login }</span>
-                        </h2>
+                        <Row>
+                            <Col>
+                                <h2 className="title">
+                                    <Image src={ organization.avatar_url }/>
+                                    <span>{ organization.login }</span>
+                                </h2>
+                            </Col>
+
+                            <Col>
+                                <DropdownButton
+                                    id="dropdown-basic-button"
+                                    className="sort"
+                                    title="Sort by"
+                                >
+                                    <Dropdown.Item
+                                        onClick={ () => handleSortChange("forks_count", "asc") }
+                                    >
+                                        Forks (asc)
+                                    </Dropdown.Item>
+                                    <Dropdown.Item
+                                        onClick={ () => handleSortChange("forks_count", "desc") }
+                                    >
+                                        Forks (desc)
+                                    </Dropdown.Item>
+
+                                    <Dropdown.Item
+                                        onClick={ () => handleSortChange("watchers_count", "asc") }
+                                    >
+                                        Watchers (asc)
+                                    </Dropdown.Item>
+                                    <Dropdown.Item
+                                        onClick={ () => handleSortChange("watchers_count", "desc") }
+                                    >
+                                        Watchers (desc)
+                                    </Dropdown.Item>
+
+                                    <Dropdown.Item
+                                        onClick={ () => handleSortChange("stargazers_count", "asc") }
+                                    >
+                                        Stars (asc)
+                                    </Dropdown.Item>
+                                    <Dropdown.Item
+                                        onClick={ () => handleSortChange("stargazers_count", "desc") }
+                                    >
+                                        Stars (desc)
+                                    </Dropdown.Item>
+                                </DropdownButton>
+                            </Col>
+                        </Row>
 
                         <Table className="table-details">
                             <thead>
@@ -47,7 +101,7 @@ class Organizations extends Component {
                             </thead>
 
                             <tbody>
-                            { repos.map( repo =>
+                            { sorted_repos.map( repo =>
                                 <tr key={ repo.id }>
                                     <td>
                                         <Link to={`/${ organization.login }/repository/${ repo.name }`}>
