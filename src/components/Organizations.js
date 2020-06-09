@@ -41,9 +41,25 @@ class Organizations extends Component {
         }
 
         return (
-            <Container className="padding-vertical">
+            <Container className="padding-vertical list-all">
                 <Row>
                     <Col>
+                        <h3 className="list-label">Explore Organizations</h3>
+                        <ListGroup className="organization-list">
+                            { organizations.map(org =>
+                                <Link
+                                    className="list-group-item"
+                                    key={ org.id }
+                                    to={`/${ org.login }`}
+                                >
+                                    <Image rounded src={ org.avatar_url } />
+                                    <span>{ org.login }</span>
+                                </Link>
+                            )}
+                        </ListGroup>
+                    </Col>
+                    <Col>
+                        <h3 className="list-label">Search for Organizations</h3>
                         <Form
                             className="search-form"
                             onSubmit={ handleSearch }
@@ -67,11 +83,7 @@ class Organizations extends Component {
                                 </Col>
                             </Form.Group>
                         </Form>
-                    </Col>
-                </Row>
 
-                <Row>
-                    <Col>
                         { organization.id ?
                             <div className="search-result">
                                 <h3 className="list-label">Search Result</h3>
@@ -93,28 +105,14 @@ class Organizations extends Component {
                                     <h3 className="list-label">{ error }</h3>
 
                                     <span>
-                                            GitHub API doesn't support partial search,
-                                            search term has to match the full name of an organization.
-                                            Example: "netflix", "github", "nasa"
-                                        </span>
+                                    GitHub API doesn't support partial search,
+                                    search term has to match the full name of an organization.
+                                    Example: "netflix", "github", "nasa"
+                                </span>
                                 </div>
                                 }
                             </div>
                         }
-
-                        <h3 className="list-label">Explore Organizations</h3>
-                        <ListGroup className="organization-list">
-                            { organizations.map(org =>
-                                <Link
-                                    className="list-group-item"
-                                    key={ org.id }
-                                    to={`/${ org.login }`}
-                                >
-                                    <Image rounded src={ org.avatar_url } />
-                                    <span>{ org.login }</span>
-                                </Link>
-                            )}
-                        </ListGroup>
                     </Col>
                 </Row>
             </Container>

@@ -92,6 +92,10 @@ footer a {
 /* ORGANIZATION LIST
  */
 
+.list-all .organization-list {
+
+}
+
 .organization-list a {
   text-decoration: none;
   font-weight: 600;

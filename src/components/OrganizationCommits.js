@@ -25,6 +25,10 @@ class OrganizationCommits extends Component {
     render() {
         const { organization, repo, commits } = this.state;
 
+        if(!commits || !commits.map){
+            return (<div>No commits to display</div>)
+        }
+
         return (
             <Container className="padding-vertical organization-single">
                 <Row>
@@ -44,7 +48,6 @@ class OrganizationCommits extends Component {
                                 <th className="center">Date</th>
                             </tr>
                             </thead>
-                            { commits !== [] &&
                             <tbody>
                             { commits.map(commit =>
                                 <tr key={ commit.sha }>
