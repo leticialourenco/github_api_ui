@@ -1,4 +1,5 @@
 import React  from 'react';
+import { Link } from 'react-router-dom';
 import { Col, Row, Container } from 'react-bootstrap';
 
 const Header = () => {
@@ -8,9 +9,9 @@ const Header = () => {
                 <Row>
                     <Col>
                         <h3>
-                            <a href="/" className="logo">
+                            <Link to="/" className="logo">
                                 GitHub API UI
-                            </a>
+                            </Link>
                         </h3>
                     </Col>
                 </Row>

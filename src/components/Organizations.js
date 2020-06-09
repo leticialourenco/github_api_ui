@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Container, Row, Col, ListGroup, Image, Form } from 'react-bootstrap';
 import fetchHelper from '../utils/fetchHelper';
 
@@ -6,8 +7,8 @@ class Organizations extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            organizations: [],
             organization: {},
+            organizations: [],
             search_input: "",
             error: ""
         }
@@ -19,7 +20,7 @@ class Organizations extends Component {
             .then(result => { this.setState({ organizations: result }) });
     }
 
-    fetchData (searchTerm) {
+    fetchSearchResult(searchTerm) {
         const promise = fetchHelper(`https://api.github.com/orgs/${ searchTerm }`);
         promise
             .then(result => { this.setState({ organization: result }) })
@@ -27,7 +28,7 @@ class Organizations extends Component {
     }
 
     render() {
-        const { organizations, search_input, organization, error } = this.state
+        const { organizations, organization, search_input, error } = this.state
 
         const handleInputChange = event => {
             this.setState({ search_input: event.target.value })
@@ -35,7 +36,7 @@ class Organizations extends Component {
 
         const handleSearch = event => {
             event.preventDefault();
-            this.fetchData(search_input);
+            this.fetchSearchResult(search_input);
             this.setState({ search_input: "" })
         }
 
@@ -68,20 +69,21 @@ class Organizations extends Component {
                         </Form>
                     </Col>
                 </Row>
+
                 <Row>
                     <Col>
                         { organization.id ?
                             <div className="search-result">
                                 <h3 className="list-label">Search Result</h3>
                                 <ListGroup className="organization-list">
-                                    <a
+                                    <Link
                                         className="list-group-item"
                                         key={ organization.id }
-                                        href="#"
+                                        to={`/${ organization.login }`}
                                     >
                                         <Image rounded src={ organization.avatar_url } />
                                         <span>{ organization.login }</span>
-                                    </a>
+                                    </Link>
                                 </ListGroup>
                             </div> :
                             <div className="search-error">
@@ -99,13 +101,18 @@ class Organizations extends Component {
                                 }
                             </div>
                         }
+
                         <h3 className="list-label">Explore Organizations</h3>
                         <ListGroup className="organization-list">
                             { organizations.map(org =>
-                                <a href="#" className="list-group-item" key={ org.id }>
-                                <Image rounded src={ org.avatar_url } />
-                                <span>{ org.login }</span>
-                                </a>
+                                <Link
+                                    className="list-group-item"
+                                    key={ org.id }
+                                    to={`/${ org.login }`}
+                                >
+                                    <Image rounded src={ org.avatar_url } />
+                                    <span>{ org.login }</span>
+                                </Link>
                             )}
                         </ListGroup>
                     </Col>

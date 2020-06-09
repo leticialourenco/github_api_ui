@@ -1,4 +1,5 @@
 import React  from 'react';
+import { Route, Switch } from 'react-router';
 
 import Header from './Header';
 import Footer from './Footer';
@@ -8,7 +9,10 @@ const App = () => {
   return (
       <div>
         <Header />
-        <Organizations />
+
+          <Switch>
+              <Route exact path="/" component={ Organizations } />
+          </Switch>
         <Footer />
       </div>
   )
