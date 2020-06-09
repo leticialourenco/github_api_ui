@@ -10,7 +10,7 @@ const Header = () => {
                     <Col>
                         <h3>
                             <Link to="/" className="logo">
-                                GitHub API UI
+                                github-api-app
                             </Link>
                         </h3>
                     </Col>
