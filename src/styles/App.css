@@ -101,7 +101,8 @@ footer a {
   border-radius: .25rem;
 }
 
-.list-label {
+.list-label,
+thead th {
   padding: 0 2rem 2rem;
   text-transform: uppercase;
   font-size: 90%;
@@ -173,4 +174,31 @@ footer a {
 
 .alert span {
   font-size: 90%;
+}
+
+/*  ORGANIZATION SINGLE PAGE
+ */
+
+.organization-single .title {
+  padding-left: 2rem;
+  margin-bottom: 3rem;
+}
+
+.organization-single .title img {
+  width: 3rem;
+  margin-right: 1.5rem;
+  border-radius: .25rem;
+}
+
+.organization-single .sub-title {
+  text-transform: uppercase;
+  font-size: 50%;
+  letter-spacing: 1px;
+  font-weight: 600;
+  padding: 1rem;
+}
+
+.table-details thead tr,
+.table-details thead th {
+  border: 0;
 }
