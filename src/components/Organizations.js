@@ -8,7 +8,8 @@ class Organizations extends Component {
         this.state = {
             organizations: [],
             organization: {},
-            search_input: ""
+            search_input: "",
+            error: ""
         }
     }
 
@@ -26,7 +27,7 @@ class Organizations extends Component {
     }
 
     render() {
-        const { organizations, search_input } = this.state
+        const { organizations, search_input, organization, error } = this.state
 
         const handleInputChange = event => {
             this.setState({ search_input: event.target.value })
@@ -69,6 +70,35 @@ class Organizations extends Component {
                 </Row>
                 <Row>
                     <Col>
+                        { organization.id ?
+                            <div className="search-result">
+                                <h3 className="list-label">Search Result</h3>
+                                <ListGroup className="organization-list">
+                                    <a
+                                        className="list-group-item"
+                                        key={ organization.id }
+                                        href="#"
+                                    >
+                                        <Image rounded src={ organization.avatar_url } />
+                                        <span>{ organization.login }</span>
+                                    </a>
+                                </ListGroup>
+                            </div> :
+                            <div className="search-error">
+
+                                { error !== "" &&
+                                <div className="alert alert-secondary">
+                                    <h3 className="list-label">{ error }</h3>
+
+                                    <span>
+                                            GitHub API doesn't support partial search,
+                                            search term has to match the full name of an organization.
+                                            Example: "netflix", "github", "nasa"
+                                        </span>
+                                </div>
+                                }
+                            </div>
+                        }
                         <h3 className="list-label">Explore Organizations</h3>
                         <ListGroup className="organization-list">
                             { organizations.map(org =>
