@@ -4,12 +4,13 @@ import { Container, Row, Col, Image, Table, Dropdown, DropdownButton  } from 're
 import fetchHelper from '../utils/fetchHelper';
 
 class OrganizationSingle extends Component {
-    state = {
-        organization: {},
-        repos: []
-    }
+    constructor(props) {
+        super(props);
+        this.state = {
+            organization: {},
+            repos: []
+        }
 
-    UNSAFE_componentWillMount() {
         let promise = fetchHelper(`https://api.github.com/orgs/${ this.props.org_login }`);
         promise
             .then(result => { this.setState({ organization: result }) });

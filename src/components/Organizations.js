@@ -4,15 +4,15 @@ import { Container, Row, Col, ListGroup, Image, Form } from 'react-bootstrap';
 import fetchHelper from '../utils/fetchHelper';
 
 class Organizations extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            organization: {},
+            organizations: [],
+            search_input: "",
+            error: ""
+        }
 
-    state = {
-        organization: {},
-        organizations: [],
-        search_input: "",
-        error: ""
-    }
-
-    UNSAFE_componentWillMount() {
         const promise = fetchHelper("https://api.github.com/organizations");
         promise
             .then(result => { this.setState({ organizations: result }) });

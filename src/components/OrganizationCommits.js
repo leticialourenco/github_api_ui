@@ -3,13 +3,14 @@ import { Container, Row, Col, Image, Table } from 'react-bootstrap';
 import fetchHelper from '../utils/fetchHelper';
 
 class OrganizationCommits extends Component {
-    state = {
-        organization: {},
-        repo: this.props.org_repo,
-        commits: []
-    }
+    constructor(props) {
+        super(props);
+        this.state = {
+            organization: {},
+            repo: this.props.org_repo,
+            commits: []
+        }
 
-    UNSAFE_componentWillMount() {
         let promise = fetchHelper(`https://api.github.com/orgs/${ this.props.org_login }`);
         promise
             .then(result => { this.setState({ organization: result }) });
