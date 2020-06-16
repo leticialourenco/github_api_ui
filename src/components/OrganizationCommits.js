@@ -3,13 +3,10 @@ import { Container, Row, Col, Image, Table } from 'react-bootstrap';
 import fetchHelper from '../utils/fetchHelper';
 
 class OrganizationCommits extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            organization: {},
-            repo: this.props.org_repo,
-            commits: []
-        }
+    state = {
+        organization: {},
+        repo: this.props.org_repo,
+        commits: []
     }
 
     UNSAFE_componentWillMount() {
@@ -88,7 +85,6 @@ class OrganizationCommits extends Component {
                                 </tr>
                             )}
                             </tbody>
-                            }
                         </Table>
                     </Col>
                 </Row>

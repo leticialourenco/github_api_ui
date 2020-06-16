@@ -4,12 +4,9 @@ import { Container, Row, Col, Image, Table, Dropdown, DropdownButton  } from 're
 import fetchHelper from '../utils/fetchHelper';
 
 class OrganizationSingle extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            organization: {},
-            repos: []
-        }
+    state = {
+        organization: {},
+        repos: []
     }
 
     UNSAFE_componentWillMount() {
