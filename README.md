@@ -1,3 +1,32 @@
+The goal of this front-end app is to provide a quick overview of a public GitHub organization, its repos and commits.
+
+## Design decisions
+
+* Easy to use and light UX
+* Barebones React for simplicity
+* Minimal amount of dependencies on 3rd party libraries to showcase problem-solving abilities
+
+## Run Locally
+
+In the root folder of the application run 
+`npm install` followed by `npm start`
+
+## Launch app 
+
+The application is also deployed on **vercel.com** and available online at [github-api-ui.now.sh](https://github-api-ui.now.sh/)
+
+## Current limitations
+
+Due to GitHub REST API limitations, there is no partial search support on the organization name/login. User has to enter full name of an organization, like "netflix", "nasa" or "adobe" in order to find a match. 
+
+## Areas of improvement
+
+* Pagination support
+* Deep-linking of the URL for sharing
+* Use GraphQL instead of REST to 
+
+--------------
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
