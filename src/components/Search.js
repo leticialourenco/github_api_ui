@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Col, Form, Image, ListGroup, Row } from 'react-bootstrap';
+import { Col, Form, Row } from 'react-bootstrap';
+import SearchResults from './SearchResults';
 import fetchHelper from '../utils/fetchHelper';
 
 class Search extends Component {
@@ -58,19 +58,8 @@ class Search extends Component {
                 </Form>
 
                 { organization.id ?
-                    <div className="search-result">
-                        <h3 className="list-label">Search Result</h3>
-                        <ListGroup className="organization-list">
-                            <Link
-                                className="list-group-item"
-                                key={ organization.id }
-                                to={`/${ organization.login }`}
-                            >
-                                <Image rounded src={ organization.avatar_url }/>
-                                <span>{ organization.login }</span>
-                            </Link>
-                        </ListGroup>
-                    </div> :
+                    <SearchResults organization={ organization }/>
+                     :
                     <div className="search-error">
 
                         { error !== "" &&
