@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Image, Table } from 'react-bootstrap';
-import fetchHelper from "../utils/fetchHelper";
+import fetchHelper from '../utils/fetchHelper';
 
 class OrganizationCommits extends Component {
     constructor(props) {

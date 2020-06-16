@@ -21,6 +21,7 @@ const App = () => {
                   <OrganizationCommits org_login={ match.params.orgUser } org_repo={ match.params.orgRep } />
               )} />
           </Switch>
+
         <Footer />
       </div>
   )

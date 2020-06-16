@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, Image, Table, Dropdown, DropdownButton  } from 'react-bootstrap';
-import fetchHelper from "../utils/fetchHelper";
+import fetchHelper from '../utils/fetchHelper';
 
-class Organizations extends Component {
+class OrganizationSingle extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -123,4 +123,4 @@ class Organizations extends Component {
     }
 }
 
-export default Organizations;
+export default OrganizationSingle;
